@@ -10,7 +10,8 @@ from django.db import IntegrityError
 
 
 def index(request):
-	return render_to_response('index.html', {'nothing': 'nothing'})
+	r = Articulo.objects.all()
+	return render_to_response('index.html', r)
 
 def guardar_articulo(request):
 	if request.is_ajax():

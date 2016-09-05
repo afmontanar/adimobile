@@ -17,11 +17,11 @@
     <script>
         dojoConfig = {
             async: true,
-            parseOnLoad: false
+            parseOnLoad: true
         };
     </script>
     <!-- dojo bootstrap -->
-     <script type="text/javascript" src="{% static "js/dojo-release-1.11.2/dojo/dojo.js" %}" djConfig="parseOnLoad: true"></script>
+     <script type="text/javascript" src="{% static "js/dojo-release-1.11.2/dojo/dojo.js" %}" djConfig="parseOnLoad: false"></script>
     <!-- dojo application code -->
     <script>
         require([
@@ -96,8 +96,7 @@
             </li>
             <!-- list item with an icon that slides to a view called "general" -->
             <li data-dojo-type="dojox/mobile/ListItem"
-    data-dojo-props="icon:'{% static "images/icon-3.png" %}' , moveTo:'general'"
-        >Nuevo articulo</li>
+            data-dojo-props="icon:'{% static "images/icon-3.png" %}' , moveTo:'general'">Nuevo articulo</li>
         </ul>
     </div>
     <!-- The "General" sub-page -->
@@ -107,10 +106,9 @@
              <span id="doneButton" data-dojo-type="dojox/mobile/ToolBarButton"
             data-dojo-props="label:'Done', moveTo:'feed', transition:'none'" style="float:right;"></span>
 
-         Nuevo articulo</h1>
+            Nuevo articulo</h1>
             <div data-dojo-type="dojox/mobile/RoundRect">
-    <div data-dojo-type="dojox/mobile/FormLayout"
-         data-dojo-props="columns:'two'">
+    <div data-dojo-type="dojox/mobile/FormLayout" data-dojo-props="columns:'two'">
         <div>
             <label for="cnm">Codigo</label>
             <fieldset>
@@ -130,10 +128,10 @@
     </div>
     </div>
 
-   <div id="listcata" data-dojo-type="dojox/mobile/ScrollableView" data-dojo-props="selected: true">
+<div id="listcata" data-dojo-type="dojox/mobile/ScrollableView" data-dojo-props="selected: true">
 <div id="feedHeading"
      data-dojo-type="dojox/mobile/Heading"
-     data-dojo-props="fixed: 'top', label: 'Feeds'">
+     data-dojo-props="fixed: 'top', label: 'Articulos'">
             <span data-dojo-type="dojox/mobile/ToolBarButton"
                   data-dojo-props=" icon:'{% static "images/settings.png" %}', moveTo:'settingx', transitionDir:'-1', transition:'none' "
                   style="float:left;"></span>
@@ -141,31 +139,25 @@
                   data-dojo-props="icon: '{% static "images/refresh.png" %}'"
                   style="float:right;"></span>
 </div>
+<!--{% for c in r %}--> 
 <div id="feedList" data-dojo-type="dojox/mobile/EdgeToEdgeList">
+     
     <div data-dojo-type="dojox/mobile/ListItem"
          data-dojo-props="moveTo:'details', transition:'slide'" class="photoListItem">
         <img src='{% static "images/mockup/photo2.png" %}' width="80px" height="80px" alt="Title" style="float:left;"/>
         <div class="photoSummary">
-            <div class="photoTitle">Photo title here</div>
+            <div class="photoTitle">{{ r.nombre }}</div>
             <div class="publishedTime" data-dojo-time="2013-12-13">published date here</div>
             <div class="author">author here</div>
         </div>
         <div class="summaryClear"></div>
     </div>
-    <div data-dojo-type="dojox/mobile/ListItem"
-         data-dojo-props="moveTo:'details', transition:'slide'" class="photoListItem">
-        <img src='{% static "images/mockup/photo2.png" %}' width="80px" height="80px" alt="Title" style="float:left;"/>
-        <div class="photoSummary">
-            <div class="photoTitle">Another photo title here</div>
-            <div class="publishedTime" data-dojo-time="2013-12-13">published date here</div>
-            <div class="author">author here</div>
-        </div>
-        <div class="summaryClear"></div>
-    </div>
+   
 </div>
+ <!-- {% endfor %}--> 
+
 </div>
-    </div>
-    <!-- And let's add another view "About" barlobento alfrente de la bodega de icopr , lavadero de carro por ese callejon-->
+    <!--  And let's add another view "About" barlobento alfrente de la bodega de icopr , lavadero de carro por ese callejon-->
     
 </body>
 </html>
