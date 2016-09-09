@@ -72,7 +72,7 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'adicmobile',
-        'USER': 'postgres',
+        'USER': 'andres',
         'PASSWORD': '1988',
         'HOST': 'localhost',
         'PORT': '5432',

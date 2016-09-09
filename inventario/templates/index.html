@@ -163,7 +163,7 @@
 <div id="listcata" data-dojo-type="dojox/mobile/ScrollableView" data-dojo-props="selected: true">
 <div id="feedHeading"
      data-dojo-type="dojox/mobile/Heading"
-     data-dojo-props="fixed: 'top', label: 'Feeds'">
+     data-dojo-props="fixed: 'top', label: 'Articulos'">
             <span data-dojo-type="dojox/mobile/ToolBarButton"
                   data-dojo-props=" icon:'{% static "images/settings.png" %}', moveTo:'settingx', transitionDir:'-1', transition:'none' "
                   style="float:left;"></span>
@@ -171,14 +171,15 @@
                   data-dojo-props="icon: '{% static "images/refresh.png" %}'"
                   style="float:right;"></span>
 </div>
+
 <div id="feedList" data-dojo-type="dojox/mobile/EdgeToEdgeList">
-{% for c in r %} 
+{% for articulo in articulos %}
     <div data-dojo-type="dojox/mobile/ListItem"
          data-dojo-props="moveTo:'details', transition:'slide'" class="photoListItem">
         <img src='{% static "images/mockup/photo2.png" %}' width="80px" height="80px" alt="Title" style="float:left;"/>
         <div class="photoSummary">
-            <div class="photoTitle">Photo title here</div>
-            <div class="publishedTime" data-dojo-time="2013-12-13">published date here</div>
+            <div class="photoTitle">{{ articulo.nombre }}</div>
+            <div class="publishedTime" data-dojo-time="2013-12-13">{{ articulo.nombre }}</div>
             <div class="author">author here</div>
         </div>
         <div class="summaryClear"></div>
@@ -187,15 +188,16 @@
          data-dojo-props="moveTo:'details', transition:'slide'" class="photoListItem">
         <img src='{% static "images/mockup/photo2.png" %}' width="80px" height="80px" alt="Title" style="float:left;"/>
         <div class="photoSummary">
-            <div class="photoTitle">Another photo title here</div>
-            <div class="publishedTime" data-dojo-time="2013-12-13">published date here</div>
+            <div class="photoTitle">{{ articulo.nombre }}</div>
+            <div class="publishedTime" data-dojo-time="2013-12-13">{{ articulo.nombre }}</div>
             <div class="author">author here</div>
         </div>
         <div class="summaryClear"></div>
     </div>
-    {% endfor %} 
+ {% endfor %}
 
 </div>
+
 </div>
 
 

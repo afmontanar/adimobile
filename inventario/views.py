@@ -7,11 +7,12 @@ from django.http import HttpResponse
 from django.shortcuts import render_to_response
 from django.template import RequestContext
 from django.db import IntegrityError
+from django.shortcuts import render
 
 
 def index(request):
-	r = Articulo.objects.all()
-	return render_to_response('index.html', r)
+	articulos = Articulo.objects.all()
+	return render(request, 'index.html', {'articulos': articulos})
 
 def guardar_articulo(request):
 	if request.is_ajax():
